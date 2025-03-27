@@ -1,0 +1,25 @@
+.shop-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.shop-list--item {
+  width: 20rem;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.item-image {
+  width: 100px;
+  border-radius: 1rem;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.item.title {
+}
