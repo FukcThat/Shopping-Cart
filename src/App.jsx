@@ -1,23 +1,31 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { Outlet, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const location = useLocation();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      fetch("https://fakestoreapi.com/products")
-        .then((response) => response.json())
-        .then((data) => setData(data));
-    };
-    fetchData();
-  }, []);
+  const isShopPage = location.pathname === "/shop";
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  return (
+    <>
+      <div className="app-container">
+        <Navbar
+          showSearch={isShopPage}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          cartItems={cartItems}
+        />
 
-  return <h1>{data && data[0].description}</h1>;
+        <main className="main-content--container">
+          <Outlet context={{ searchTerm, cartItems, setCartItems }} />
+        </main>
+      </div>
+    </>
+  );
 }
 
 export default App;
