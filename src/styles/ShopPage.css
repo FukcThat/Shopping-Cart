@@ -13,13 +13,18 @@
   padding: 1rem;
 }
 
-.item-image {
-  width: 100px;
-  border-radius: 1rem;
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 12px;
+.item-image-wrapper {
+  width: 100%;
+  height: 150px; /* fixed height to keep all image spaces equal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
 }
 
-.item.title {
+.item-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }

@@ -22,11 +22,13 @@ export default function ShopPage() {
       <ul className="shop-list">
         {filteredProducts.map((item) => (
           <li key={item.id} className="shop-list--item">
-            <img src={item.image} alt={item.title} className="item-image" />
+            <div className="item-image-wrapper">
+              <img src={item.image} alt={item.title} className="item-image" />
+            </div>{" "}
             <h3 className="item-title">{item.title}</h3>
             <p className="item-price">{item.price} $</p>
             <button
-              onClick={() => setCartItems({ ...cartItems, irem })}
+              onClick={() => setCartItems({ ...cartItems, item })}
               className="item-add-btn"
             >
               Add to Cart
