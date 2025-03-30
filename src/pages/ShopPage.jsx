@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import "../styles/ShopPage.css";
 
 export default function ShopPage() {
@@ -22,9 +22,9 @@ export default function ShopPage() {
       <ul className="shop-list">
         {filteredProducts.map((item) => (
           <li key={item.id} className="shop-list--item">
-            <div className="item-image-wrapper">
+            <Link to={`/item/${item.id}`} className="item-image-wrapper">
               <img src={item.image} alt={item.title} className="item-image" />
-            </div>{" "}
+            </Link>{" "}
             <h3 className="item-title">{item.title}</h3>
             <p className="item-price">{item.price} $</p>
             <button
