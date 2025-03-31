@@ -1,0 +1,38 @@
+.about-page {
+  padding: 3rem 2rem;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-content {
+  width: 100dvw;
+  background-color: #9e7167;
+  padding: 2rem;
+  padding-inline: 5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.about-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text {
+  margin-left: 5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.cat-tax {
+  margin-top: 2rem;
+}
+
+.cat-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
