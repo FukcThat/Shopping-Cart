@@ -1,0 +1,33 @@
+.hero {
+  padding: 3rem;
+  text-align: center;
+  background-color: #9e7167;
+}
+
+.shop-now-btn {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #a63c0f;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.highlights {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.highlight {
+  flex: 1 1 240px;
+  background: #93452d;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
