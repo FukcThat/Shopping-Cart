@@ -1,0 +1,45 @@
+.item-page {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.item-page--image-wrapper {
+  max-height: 80dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.item-page-image {
+  border-radius: 1rem;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.item-page--text-wrapper {
+  background-color: #9e7167;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 5rem;
+}
+
+.item-page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.item-page-description {
+  font-size: 1.05rem;
+}
+
+.item-page-price {
+  font-weight: bold;
+  font-size: 1.2rem;
+}

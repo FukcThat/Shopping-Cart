@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "../styles/ItemPage.css";
 
 export default function ItemPage() {
   const [itemData, setItemData] = useState(null);
@@ -20,11 +21,19 @@ export default function ItemPage() {
   ) : itemData === -1 ? (
     <div>Sorry about that.</div>
   ) : (
-    <>
-      <div>{itemData.title}</div>
-      <div className="item-image-wrapper">
-        <img src={itemData.image} alt={itemData.title} className="item-image" />
+    <div className="item-page">
+      <div className="item-page--image-wrapper">
+        <img
+          src={itemData.image}
+          alt={itemData.title}
+          className="item-page-image"
+        />
       </div>
-    </>
+      <div className="item-page--text-wrapper">
+        <div className="item-page-title">{itemData.title}</div>
+        <div className="item-page-description">{itemData.description}</div>
+        <div className="item-page-price">$ {itemData.price}</div>
+      </div>
+    </div>
   );
 }
