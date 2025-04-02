@@ -7,11 +7,15 @@
 
 .item-page--image-wrapper {
   max-height: 80dvh;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
   overflow: hidden;
+  padding-block: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(255, 255, 255);
 }
 
 .item-page-image {
