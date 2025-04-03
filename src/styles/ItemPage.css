@@ -26,7 +26,6 @@
 }
 
 .item-page--text-wrapper {
-  background-color: #9e7167;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -39,11 +38,25 @@
   font-weight: bold;
 }
 
-.item-page-description {
+.item-page-description,
+.item-page-title {
+  background-color: #9e7167;
+  padding: 2rem;
   font-size: 1.05rem;
+  border-radius: 1rem;
 }
 
 .item-page-price {
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.item-page--price-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-input-group {
+  display: flex;
+  gap: 2rem;
 }

@@ -32,7 +32,14 @@ export default function ItemPage() {
       <div className="item-page--text-wrapper">
         <div className="item-page-title">{itemData.title}</div>
         <div className="item-page-description">{itemData.description}</div>
-        <div className="item-page-price">$ {itemData.price}</div>
+        <div className="item-page--price-group">
+          <div className="add-input-group">
+            <button>+</button>
+            <input type="number" defaultValue={0}></input>
+            <button>-</button>
+          </div>
+          <div className="item-page-price">$ {itemData.price}</div>
+        </div>
       </div>
     </div>
   );
