@@ -19,7 +19,16 @@ function App() {
           setSearchTerm={setSearchTerm}
           cartItems={cartItems}
         />
-
+        <div>
+          <h1>Cart</h1>
+          {cartItems.map((item) => {
+            return (
+              <div>
+                {item.title} * {item.amount}
+              </div>
+            );
+          })}
+        </div>
         <main className="main-content--container">
           <Outlet context={{ searchTerm, cartItems, setCartItems }} />
         </main>

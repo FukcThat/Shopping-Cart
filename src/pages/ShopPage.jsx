@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import "../styles/ShopPage.css";
+import { AddItemToCart } from "../lib/utils";
 
 export default function ShopPage() {
   const { searchTerm, cartItems, setCartItems } = useOutletContext();
   const [products, setProducts] = useState([]);
+
+  const HandleAddToCart = (item) => {
+    AddItemToCart(item, 1, cartItems, setCartItems);
+  };
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -28,7 +33,7 @@ export default function ShopPage() {
             <h3 className="item-title">{item.title}</h3>
             <p className="item-price">{item.price} $</p>
             <button
-              onClick={() => setCartItems({ ...cartItems, item })}
+              onClick={() => HandleAddToCart(item)}
               className="item-add-btn"
             >
               Add to Cart
