@@ -1,14 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-export default function ShoppingCart({ itemCount }) {
+export default function ShoppingCart({ itemCount, onCartClick }) {
   return (
     <div>
-      <Link to="/cart" className="shopping-cart-icon-wrapper">
-        <div className="cart-icon">🛒</div>
-
+      <div
+        className="shopping-cart-icon-wrapper"
+        onClick={() => {
+          console.log("🛒 Cart icon clicked!");
+          onCartClick();
+        }}
+      >
+        {" "}
         {itemCount > 0 && <span className="cart-amount-icon">{itemCount}</span>}
-      </Link>
+        <div className="cart-icon">🛒</div>
+      </div>
     </div>
   );
 }

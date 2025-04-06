@@ -70,7 +70,7 @@ export default function ItemPage() {
           <button onClick={HandleAddToCart}>Add to Cart</button>
         </div>
       </div>
-      <div>I luv you</div>
+      {/* <div>I luv you</div> */}
     </div>
   );
 }

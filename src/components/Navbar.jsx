@@ -4,7 +4,12 @@ import { Link, useLocation } from "react-router-dom";
 import ShoppingCart from "./ShoppingCart";
 import "../styles/Navbar.css";
 
-export default function Navbar({ cartItems, searchTerm, setSearchTerm }) {
+export default function Navbar({
+  cartItems,
+  searchTerm,
+  setSearchTerm,
+  onCartClick,
+}) {
   const location = useLocation();
   const isShopPage = location.pathname === "/shop";
 
@@ -22,7 +27,7 @@ export default function Navbar({ cartItems, searchTerm, setSearchTerm }) {
         </div>
       )}
 
-      <ShoppingCart itemCount={cartItems.length} />
+      <ShoppingCart itemCount={cartItems.length} onCartClick={onCartClick} />
     </nav>
   );
 }

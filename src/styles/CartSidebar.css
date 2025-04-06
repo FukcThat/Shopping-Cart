@@ -1,0 +1,43 @@
+.cart-sidebar {
+  position: fixed;
+  top: 4.5rem; /* adjust to match navbar height */
+  right: 0;
+  width: 300px;
+  height: calc(100vh - 4.5rem);
+  background-color: #ebc5be;
+  color: #272727;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.cart-item {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.close-btn {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.close-btn:hover {
+  color: #000;
+}
