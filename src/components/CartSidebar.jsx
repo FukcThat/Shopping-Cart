@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/CartSidebar.css";
 
-export default function CartSidebar({ cartItems, isOpen, onClose }) {
+export default function CartSidebar({ cartItems, isOpen }) {
   console.log("Sidebar open:", isOpen);
 
   return (
@@ -13,7 +13,12 @@ export default function CartSidebar({ cartItems, isOpen, onClose }) {
       ) : (
         cartItems.map((item, i) => (
           <div key={i} className="cart-item">
-            {item.title}*{item.amount}
+            <img src={item.image} className="cart-item--image"></img>
+            <div className="cart-item--amount">{item.amount}x</div>
+            <div className="cart-item--name">{item.title}</div>
+            <div className="cart-item--price">
+              $ {(item.price * item.amount).toFixed(2)}
+            </div>
           </div>
         ))
       )}
