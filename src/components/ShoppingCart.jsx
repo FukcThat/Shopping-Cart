@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/ShoppingCart.css";
 
 export default function ShoppingCart({ itemCount, onCartClick }) {
   return (
