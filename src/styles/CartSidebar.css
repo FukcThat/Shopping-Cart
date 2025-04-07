@@ -1,6 +1,6 @@
 .cart-sidebar {
   position: fixed;
-  top: 5.75rem;
+  top: 4.2rem;
   right: 0;
   width: 300px;
   height: calc(100vh - 4.5rem);
@@ -33,10 +33,21 @@
 }
 
 .cart-item--image {
-  height: 5rem;
-  width: auto;
+  height: auto;
+  width: 4rem;
 }
 
 .cart-item--name {
-  width: 9rem;
+  width: 8rem;
+}
+
+.cart-item--amount-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.amount-group--more-btn,
+.amount-group--less-btn {
+  background: none;
 }
