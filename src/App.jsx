@@ -27,6 +27,7 @@ function App() {
         </main>
         <CartSidebar
           cartItems={cartItems}
+          setCartItems={setCartItems}
           isOpen={cartOpen}
           onClose={() => setCartOpen(false)}
         />

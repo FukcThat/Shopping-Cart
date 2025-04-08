@@ -1,8 +1,22 @@
 import React from "react";
 import "../styles/CartSidebar.css";
 
-export default function CartSidebar({ cartItems, isOpen }) {
-  console.log("Sidebar open:", isOpen);
+export default function CartSidebar({ cartItems, isOpen, setCartItems }) {
+  const changeItemAmount = (itemId, isIncrementing) => {
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === itemId)
+        return {
+          ...item,
+          amount: isIncrementing
+            ? item.amount + 1
+            : item.amount < 2
+            ? 1
+            : item.amount - 1,
+        };
+      return item;
+    });
+    setCartItems(newCartItems);
+  };
 
   return (
     <div className={`cart-sidebar ${isOpen ? "open" : ""}`}>
@@ -15,9 +29,19 @@ export default function CartSidebar({ cartItems, isOpen }) {
           <div key={i} className="cart-item">
             <img src={item.image} className="cart-item--image"></img>
             <div className="cart-item--amount-group">
-              <button className="amount-group--more-btn">▲</button>
+              <button
+                className="amount-group--more-btn"
+                onClick={() => changeItemAmount(item.id, true)}
+              >
+                ▲
+              </button>
               <div className="cart-item--amount">{item.amount}x</div>
-              <button className="amount-group--less-btn">▼</button>
+              <button
+                className="amount-group--less-btn"
+                onClick={() => changeItemAmount(item.id, false)}
+              >
+                ▼
+              </button>
             </div>
             <div className="cart-item--name">{item.title}</div>
             <div className="cart-item--price">
