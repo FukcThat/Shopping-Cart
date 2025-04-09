@@ -18,6 +18,10 @@ export default function CartSidebar({ cartItems, isOpen, setCartItems }) {
     setCartItems(newCartItems);
   };
 
+  const total = cartItems.reduce((sum, item) => {
+    return sum + item.price * (item.amount ?? 1);
+  }, 0);
+
   return (
     <div className={`cart-sidebar ${isOpen ? "open" : ""}`}>
       <h2>Shopping Cart</h2>
@@ -50,6 +54,10 @@ export default function CartSidebar({ cartItems, isOpen, setCartItems }) {
           </div>
         ))
       )}
+      <div className="checkout-group">
+        <button className="checkout-group--buy-btn">Buy Now</button>
+        <div className="checkout-group--total-price">${total.toFixed(2)}</div>
+      </div>
     </div>
   );
 }

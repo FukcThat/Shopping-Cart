@@ -51,3 +51,13 @@
 .amount-group--less-btn {
   background: none;
 }
+
+.checkout-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-group--buy-btn {
+  width: 10rem;
+}
