@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "../styles/CartSidebar.css";
 
-export default function CartSidebar({ cartItems, isOpen, setCartItems }) {
+export default function CartSidebar({
+  cartItems,
+  isOpen,
+  setCartItems,
+  onClose,
+  setShowToast,
+}) {
   const changeItemAmount = (itemId, isIncrementing) => {
     const newCartItems = cartItems.map((item) => {
       if (item.id === itemId)
@@ -18,9 +24,25 @@ export default function CartSidebar({ cartItems, isOpen, setCartItems }) {
     setCartItems(newCartItems);
   };
 
-  const total = cartItems.reduce((sum, item) => {
-    return sum + item.price * (item.amount ?? 1);
-  }, 0);
+  const deleteCartItem = (itemId) => {
+    const newCartItems = cartItems.filter((item) => {
+      return item.id !== itemId;
+    });
+    console.log(newCartItems, itemId);
+    setCartItems(newCartItems);
+  };
+
+  const checkout = () => {
+    setCartItems([]);
+    setShowToast(true);
+    onClose();
+  };
+
+  const total = useMemo(() => {
+    return cartItems.reduce((sum, item) => {
+      return sum + item.price * item.amount;
+    }, 0);
+  }, [cartItems]);
 
   return (
     <div className={`cart-sidebar ${isOpen ? "open" : ""}`}>
@@ -40,12 +62,21 @@ export default function CartSidebar({ cartItems, isOpen, setCartItems }) {
                 ▲
               </button>
               <div className="cart-item--amount">{item.amount}x</div>
-              <button
-                className="amount-group--less-btn"
-                onClick={() => changeItemAmount(item.id, false)}
-              >
-                ▼
-              </button>
+              {item.amount === 1 ? (
+                <button
+                  className="amount-group--less-btn"
+                  onClick={() => deleteCartItem(item.id)}
+                >
+                  🗑️
+                </button>
+              ) : (
+                <button
+                  className="amount-group--less-btn"
+                  onClick={() => changeItemAmount(item.id, false)}
+                >
+                  ▼
+                </button>
+              )}
             </div>
             <div className="cart-item--name">{item.title}</div>
             <div className="cart-item--price">
@@ -55,7 +86,9 @@ export default function CartSidebar({ cartItems, isOpen, setCartItems }) {
         ))
       )}
       <div className="checkout-group">
-        <button className="checkout-group--buy-btn">Buy Now</button>
+        <button className="checkout-group--buy-btn" onClick={checkout}>
+          Buy Now
+        </button>
         <div className="checkout-group--total-price">${total.toFixed(2)}</div>
       </div>
     </div>

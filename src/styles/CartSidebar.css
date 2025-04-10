@@ -61,3 +61,11 @@
 .checkout-group--buy-btn {
   width: 10rem;
 }
+
+.checkout-toast {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #484343;
+  position: absolute;
+  top: 25rem;
+}

@@ -7,6 +7,7 @@ import CartSidebar from "./components/CartSidebar";
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation();
   const isShopPage = location.pathname === "/shop";
@@ -14,6 +15,19 @@ function App() {
   return (
     <>
       <div className="app-container">
+        {showToast && (
+          <div className="checkout-toast">
+            <h3>Sorry, this is not a real shop.</h3>
+            <button
+              onClick={() => {
+                setShowToast(false);
+              }}
+            >
+              ok
+            </button>
+          </div>
+        )}
+
         <Navbar
           showSearch={isShopPage}
           searchTerm={searchTerm}
@@ -30,6 +44,7 @@ function App() {
           setCartItems={setCartItems}
           isOpen={cartOpen}
           onClose={() => setCartOpen(false)}
+          setShowToast={setShowToast}
         />
       </div>
     </>
