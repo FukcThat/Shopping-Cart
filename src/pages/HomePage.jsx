@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/HomePage.css";
 
 export default function HomePage() {
@@ -10,12 +11,13 @@ export default function HomePage() {
           Your curated shop for everyday essentials — from work-ready tech to
           wear-everywhere style.
         </p>
-        <button
+        <Link className="home-to-shop-btn" to="/shop">
+          Explore the Collection
+        </Link>
+        {/* <button
           className="shop-now-btn"
           onClick={() => (window.location.href = "/shop")}
-        >
-          Explore the Collection
-        </button>
+        ></button> */}
       </section>
 
       <section className="highlights">
