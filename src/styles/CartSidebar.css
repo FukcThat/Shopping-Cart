@@ -68,4 +68,5 @@
   background-color: #484343;
   position: absolute;
   top: 25rem;
+  z-index: 99;
 }
